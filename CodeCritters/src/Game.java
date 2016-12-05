@@ -50,6 +50,32 @@ public class Game {
 		while (true) {
 			System.out.println(user.getCurrentLocation().getName());
 			System.out.println(user.getCurrentLocation().getDesc());
+			
+			if (user.getCurrentLocation().connections.get(Direction.North) != null) {
+				System.out.println("To the North is: " + user.getCurrentLocation().connections.get(Direction.North).getName());
+			}
+			if (user.getCurrentLocation().connections.get(Direction.South) != null) {
+				System.out.println("To the South is: " + user.getCurrentLocation().connections.get(Direction.South).getName());
+			}
+			if (user.getCurrentLocation().connections.get(Direction.East) != null) {
+				System.out.println("To the East is: " + user.getCurrentLocation().connections.get(Direction.East).getName());
+			}
+			if (user.getCurrentLocation().connections.get(Direction.West) != null) {
+				System.out.println("To the West is: " + user.getCurrentLocation().connections.get(Direction.West).getName());
+			}
+			if (user.getCurrentLocation().connections.get(Direction.Up) != null) {
+				System.out.println("Upwards is: " + user.getCurrentLocation().connections.get(Direction.Up).getName());
+			}
+			if (user.getCurrentLocation().connections.get(Direction.Down) != null) {
+				System.out.println("Downwards is: " + user.getCurrentLocation().connections.get(Direction.Down).getName());
+			}
+			
+			for (Person person : user.getCurrentLocation().people) {
+				if (person != user) {
+					System.out.println(person.getIdentifier() + " is in the room");
+				}
+			}
+			
 			System.out.println("Enter command:");
 			currentCommand = p.generateCommand(scan.nextLine(),user);
 			if (currentCommand != null) {

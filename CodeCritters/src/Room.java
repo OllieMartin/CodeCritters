@@ -8,7 +8,7 @@ public class Room {
 	private int id;
 	private String name;
 	private String desc;
-	private Map<Direction, Room> connections;
+	public Map<Direction, Room> connections;
 	public List<Person> people;
 	private List<Item> items;
 	private Permission permission;
