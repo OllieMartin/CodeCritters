@@ -10,7 +10,7 @@ public class MoneyCommand extends Command {
 
 	@Override
 	public void execute() {
-		System.out.println("Your coins: " + player.);
+		System.out.println("Your coins: " + player.getMoney());
 		
 	}
 
