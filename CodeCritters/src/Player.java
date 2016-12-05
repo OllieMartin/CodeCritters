@@ -10,5 +10,9 @@ public class Player extends Person {
 	public void reward(int amount) {
 		money = money + amount;
 	}
+	
+	public int getMoney() {
+		return money;
+	}
 
 }
