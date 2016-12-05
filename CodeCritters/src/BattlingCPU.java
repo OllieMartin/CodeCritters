@@ -43,7 +43,11 @@ public class BattlingCPU extends CPU implements Battling {
 	
 	@Override
 	public void interact(Player p) {
-		Game.startBattle(p, this);
+		if (this.critter.getHealth() > 0) {
+			Game.startBattle(p, this);
+		} else {
+			System.out.println("My critter is too injured to battle...");
+		}
 	}
 
 }

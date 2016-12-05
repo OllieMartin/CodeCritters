@@ -17,12 +17,14 @@ public class Parser {
 				returnCommand = new MoveCommand(Direction.West, player);
 			} else if (command.equalsIgnoreCase("explore")){
 				returnCommand = new ExploreCommand(player);
+			} else if (command.equalsIgnoreCase("money")){
+				returnCommand = new MoneyCommand(player);
 			}
 			break;
 		case 2:
-			if (command.startsWith("interact ")) {
+			if (command.toLowerCase().startsWith("interact ")) {
 				for (Person p : player.getCurrentLocation().people) {
-					if (p.getIdentifier().equals(commandParts[1])) {
+					if (p.getIdentifier().toLowerCase().equals(commandParts[1].toLowerCase())) {
 						returnCommand = new InteractCommand((CPU) p, player);
 					}
 				}
