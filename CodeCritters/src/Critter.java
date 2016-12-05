@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Critter {
@@ -13,21 +14,26 @@ public class Critter {
 	public Critter(CritterSpecies species, int maxHealth) {
 		id = Game.getNextCritterId();
 		this.species = species;
+		abilities = new ArrayList<Ability>();
 		switch (species) {
 		case ArrayIndex:
 			name = "ArrayIndex";
+			abilities.add(new Ability("ARRAYINDEXOUTOFBOUNDS EXCEPTION OCCURED", "**CRASH**", 10));
 			break;
 		case Exception:
 			name = "Exception";
 			break;
 		case IOException:
 			name = "IOException";
+			abilities.add(new Ability("IOEXCEPTION OCCURED", "**CRASH**", 10));
 			break;
 		case NullPointer:
 			name = "NullPointer";
+			abilities.add(new Ability("NULL POINTER EXCEPTION OCCURED", "**Silence as it was a null value**", 5));
 			break;
 		case OutOfBounds:
 			name = "OutOfBounds";
+			abilities.add(new Ability("A RANDOM OUTOFBOUNDS EXCEPTION OCCURED", "**???**", 10));
 			break;
 		default:
 			name = "";
@@ -37,22 +43,7 @@ public class Critter {
 		this.maxHealth = maxHealth;
 		this.health = maxHealth;
 		owner = null;
-		// ADD ABILITIES FOR EACH SPECIES
-		switch (this.species){
-		case ArrayIndex:
-			break;
-		case Exception:
-			break;
-		case IOException:
-			break;
-		case NullPointer:
-			break;
-		case OutOfBounds:
-			break;
-		default:
-			break;
-		
-		}
+
 	}
 	
 	public CritterSpecies getSpecies() {
@@ -61,6 +52,22 @@ public class Critter {
 	
 	public void setOwner(Person owner) {
 		this.owner = owner;
+	}
+	
+	public Ability getAbility(int index) {
+		return abilities.get(index);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getHealth() {
+		return health;
+	}
+	
+	public void damage(int amount) {
+		health = health - amount;
 	}
 	
 }

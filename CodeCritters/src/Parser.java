@@ -18,6 +18,16 @@ public class Parser {
 			} else if (command.equalsIgnoreCase("explore")){
 				returnCommand = new ExploreCommand(player);
 			}
+			break;
+		case 2:
+			if (command.startsWith("interact ")) {
+				for (Person p : player.getCurrentLocation().people) {
+					if (p.getIdentifier().equals(commandParts[1])) {
+						returnCommand = new InteractCommand((CPU) p, player);
+					}
+				}
+				
+			}
 		}
 		return returnCommand;
 	}

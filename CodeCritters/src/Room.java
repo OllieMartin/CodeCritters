@@ -9,7 +9,7 @@ public class Room {
 	private String name;
 	private String desc;
 	private Map<Direction, Room> connections;
-	private List<Person> people;
+	public List<Person> people;
 	private List<Item> items;
 	private Permission permission;
 	
