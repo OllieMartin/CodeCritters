@@ -19,7 +19,7 @@ public class Game {
 		startLocation = new Room("Home", "Your house");
 		rooms.add(startLocation);
 		
-		currentRoom = new Room("Garden", "The garden is very overgrown and you are surrounded by plants and long grass");
+		currentRoom = new CritterRoom("Garden", "The garden is very overgrown and you are surrounded by plants and long grass",CritterSpecies.NullPointer);
 		currentRoom.addConnection(Direction.South, startLocation);
 		rooms.add(currentRoom);
 		
@@ -47,7 +47,7 @@ public class Game {
 		lastRoom = currentRoom;
 		
 		Player user = new Player("user");
-		user.addCritter(new Critter(CritterSpecies.OutOfBounds, 50));
+		//user.addCritter(new Critter(CritterSpecies.OutOfBounds, 50));
 		
 		Scanner scan = new Scanner(System.in);
 		Parser p = new Parser();
