@@ -20,3 +20,5 @@
 /BattlingCPU.class
 /InteractCommand.class
 /MoneyCommand.class
+/Hospital.class
+/HealCommand.class

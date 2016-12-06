@@ -19,6 +19,8 @@ public class Parser {
 				returnCommand = new ExploreCommand(player);
 			} else if (command.equalsIgnoreCase("money")){
 				returnCommand = new MoneyCommand(player);
+			} else if (command.equalsIgnoreCase("heal")) {
+				returnCommand = new HealCommand(player);
 			}
 			break;
 		case 2:

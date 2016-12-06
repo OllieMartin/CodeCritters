@@ -18,27 +18,26 @@ public class Critter {
 		switch (species) {
 		case ArrayIndex:
 			name = "ArrayIndex";
-			abilities.add(new Ability("ARRAYINDEXOUTOFBOUNDS EXCEPTION OCCURED", "**CRASH**", 10));
+			abilities.add(new Ability("ARRAYINDEXOUTOFBOUNDS EXCEPTION OCCURED", "**CRASH**", 10,5));
 			break;
 		case Exception:
 			name = "Exception";
 			break;
 		case IOException:
 			name = "IOException";
-			abilities.add(new Ability("IOEXCEPTION OCCURED", "**CRASH**", 10));
+			abilities.add(new Ability("IOEXCEPTION OCCURED", "**CRASH**", 10,5));
 			break;
 		case NullPointer:
 			name = "NullPointer";
-			abilities.add(new Ability("NULL POINTER EXCEPTION OCCURED", "**Silence as it was a null value**", 5));
+			abilities.add(new Ability("NULL POINTER EXCEPTION OCCURED", "**Silence as it was a null value**", 5,10));
 			break;
 		case OutOfBounds:
 			name = "OutOfBounds";
-			abilities.add(new Ability("A RANDOM OUTOFBOUNDS EXCEPTION OCCURED", "**???**", 10));
+			abilities.add(new Ability("A RANDOM OUTOFBOUNDS EXCEPTION OCCURED", "**???**", 10,5));
 			break;
 		default:
 			name = "";
 			break;
-		
 		}
 		this.maxHealth = maxHealth;
 		this.health = maxHealth;

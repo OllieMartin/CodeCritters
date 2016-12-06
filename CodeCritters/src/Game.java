@@ -40,6 +40,12 @@ public class Game {
 		BattlingCPU cpu = new BattlingCPU("John", currentRoom, new Critter(CritterSpecies.OutOfBounds, 50), 100, "I CHALLENGE YOU MORTAL!", "Oh dear...", "MWHAHAHA I WIN AGAIN");
 		currentRoom.people.add(cpu);
 		
+		currentRoom = new Hospital("The Grand Hospital", "A safe place to rest and heal your critters!");
+		currentRoom.addConnection(Direction.East, lastRoom);
+		rooms.add(currentRoom);
+		
+		lastRoom = currentRoom;
+		
 		Player user = new Player("user");
 		user.addCritter(new Critter(CritterSpecies.OutOfBounds, 50));
 		
@@ -142,14 +148,23 @@ public class Game {
 			index = -1;
 			for (Ability a : battler.abilities) {
 				index++;
-				System.out.println(index + ". " + a.name + "(" + a.power + ")");
+				System.out.println(index + ". " + a.name + "(" + a.power + ") (Number left: " + a.numberLeft + ")");
 			}
 			
 			input = scan.nextInt();
 			//TODO add validation
 			chosen = battler.abilities.get(input);
 			
-			cpu.getCritter().damage(chosen.power);
+			int abilityPower;
+			
+			abilityPower = chosen.use();
+			
+			if (abilityPower > 0) {
+				cpu.getCritter().damage(chosen.power);
+			} else {
+				System.out.println("You dont have any energy left to use that ability!");
+			}
+			
 			if (cpu.getCritter().health <= 0) {
 				System.out.println("YOU WON");
 				System.out.println(cpu.getIdentifier() + ": " + cpu.getDefeatMessage());
@@ -157,7 +172,13 @@ public class Game {
 				System.out.println("You were rewarded with coins: " + cpu.getReward());
 			} else {
 				
-				battler.damage(cpu.critter.getAbility(0).power);
+				abilityPower = cpu.critter.getAbility(0).use();
+				if (abilityPower > 0) {
+					battler.damage(cpu.critter.getAbility(0).power);
+				} else {
+					System.out.println("Opponent had no energy to use their ability!");
+				}
+				
 				if (battler.health <= 0) {
 					System.out.println("YOU LOST");
 					System.out.println(cpu.getIdentifier() + ": " + cpu.getVictoryMessage());
