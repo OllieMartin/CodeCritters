@@ -35,6 +35,10 @@ public class Critter {
 			name = "OutOfBounds";
 			abilities.add(new Ability("A RANDOM OUTOFBOUNDS EXCEPTION OCCURED", "**???**", 10,5));
 			break;
+		case Eclipsy:
+			name = "Eclipsy";
+			abilities.add(new Ability("MAKE STATIC","**WOULD YOU LIKE TO MAKE THIS STATIC!?",100,5));
+			break;
 		default:
 			name = "";
 			break;

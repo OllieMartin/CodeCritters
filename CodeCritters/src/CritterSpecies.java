@@ -6,5 +6,6 @@ public enum CritterSpecies {
 	OutOfBounds,
 	IOException,
 	ArrayIndex,
+	Eclipsy
 	
 }

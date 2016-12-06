@@ -31,7 +31,7 @@ public class Game {
 		
 		lastRoom = currentRoom;
 		
-		currentRoom = new CritterRoom("Forest", "The mysterious forest is dark and dew glistens on the leaves", CritterSpecies.IOException);
+		currentRoom = new CritterRoom("Forest", "The mysterious forest is dark and dew glistens on the leaves", CritterSpecies.Eclipsy);
 		currentRoom.addConnection(Direction.East, lastRoom);
 		rooms.add(currentRoom);
 		
